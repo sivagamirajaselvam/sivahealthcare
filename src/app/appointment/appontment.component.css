@@ -1,0 +1,16 @@
+.bg-image{
+    height: 100%;
+}
+.p1{
+    text-align: center;
+    font-weight: bold;
+}
+h6,h4,.p1{
+    color: rgb(75,135,152);
+}
+.p1{
+    padding-bottom: 10px;
+}
+h6{
+    font-weight: bold;
+}

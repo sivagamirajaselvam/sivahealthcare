@@ -1,0 +1,15 @@
+
+.selected{
+    color:white;
+    background-color:rgb(62,182,198);
+  }
+
+    
+    .navbar-nav > li{
+        margin-left:0px;
+        margin-right:10px;
+        color:black;
+        font-weight:500;
+        background-color: rgb(233,249,231);
+      }
+      

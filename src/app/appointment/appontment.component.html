@@ -1,0 +1,201 @@
+<!--<div class="container">
+<section class="mh-100 mw-100 bg-image"
+  style=" background-image: url('../../assets/login.jpg');">-->
+
+
+<!--show appoinment form when form not submitted-->
+  <div class="reg" *ngIf="!submitted">
+  <section class="mh-100 bg-image"
+  style="background-image: url('../../assets/login.jpg');">
+              
+<h2 class="text-center mb-5 pt-4">BOOK APPOINTMENT</h2>
+  
+<div class="container h-100 pb-3 ">
+     <div class="row d-flex justify-content-center align-items-center h-100  ">
+        <div class="col-xl-9">
+          
+  <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+              <div class="card" style="border-radius: 15px;">
+            <div class="card-body">
+   
+           
+              <div class="row align-items-center pt-4 pb-3">
+                <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Patient Name</h6>
+                </div>
+                <div class="col-md-4 pe-5">
+                   <input type="text" formControlName="pName" class="form-control form-control-lg" />
+                </div>
+              </div>
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Patient DOB</h6>
+                </div>
+                <div class="col-md-4 pe-5">
+                   <input type="date" formControlName="dob" class="form-control form-control-lg" />
+                </div>
+              </div>
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                    <h6 class="mb-0">Patient Medical Issue:</h6>
+                </div>
+                <div class="col-md-4 pe-5">
+                      <textarea class="form-control" formControlName="mIssue" rows="3" ></textarea>
+                </div>
+              </div>
+
+             <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                       <h6 class="mb-0">Select Hospital Branch:</h6>
+                </div>
+                <div class="col-md-4 pe-8">
+                   <select name="branch" id="branch" formControlName="branch" class="form-control form-control-lg">
+                    <option selected="" value="">Select</option>
+                    <option [ngValue]="b.name" *ngFor="let b of BranchList">
+                    {{b.name}}
+                    </option>
+                    </select>
+                </div>
+              </div>
+
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Doctor Specialist:</h6>
+                </div>
+                <div class="col-md-4 pe-8">
+                    <select name="doctor" id="doctor" formControlName="doctor" class="form-control form-control-lg" >
+                    <option selected="" value="">Select</option>
+                    <option [ngValue]="d.name" *ngFor="let d of DoctorList">
+                    {{d.name}}
+                    </option>
+                    </select>
+                </div>
+              </div>
+
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">Visit Date</h6>
+                </div>
+                <div class="col-md-4 pe-5">
+                  <input type="date" formControlName="visitdate" class="form-control form-control-lg" />
+                 </div>
+                 
+                 <div class="row align-items-center pt-4 pb-3">
+                    <div class="col-md-3 ps-5">
+                      <h6 class="mb-0">Email:</h6>
+                    </div>
+                    <div class="col-md-4 pe-5">
+                     <input type="email" formControlName="email" class="form-control form-control-lg" />
+                    </div>
+                  </div>
+      
+                  <div class="row align-items-center pt-4 pb-3">
+                    <div class="col-md-3 ps-5">
+                    <h6 class="mb-0">Mobile Number</h6>
+                    </div>
+                    <div class="col-md-4 pe-5">
+                      <input type="text" formControlName="mnbr"class="form-control form-control-lg" />
+      
+                        <div class="text-danger"  *ngIf="((!regForm.controls.mnbr.valid)&& (regForm.controls.mnbr.dirty))">Only Numbers Required</div>
+                  </div></div>
+                  
+                  <div class="row align-items-center pt-4 pb-3">
+                    <div class="col-md-3 ps-5">
+                     <h6 class="mb-0"></h6>
+                    </div>
+                    <div class="col-md-4 pe-5">
+                    <button type="submit" class="btn  btn-lg" [ngStyle]="{'backgroundColor':'rgb(75,135,152)'}" [disabled]="!regForm.valid">  Appointment</button>
+                    </div>
+                  </div>
+            </div>
+          </div>
+     </div>
+    </form>
+      </div>
+        </div>
+     </div>
+  </section></div>
+  
+
+<!--<div class="container">
+<section class="mh-100 mw-100 bg-image"
+  style=" background-image: url('../../assets/login.jpg');">-->
+
+  <!--show summary page if form is submitted-->
+
+  <div class="reg" *ngIf="submitted" >
+  <section class="mh-100 bg-image"
+  style="background-image: url('../../assets/login.jpg');">
+              
+<div class="container h-100 pt-4"  >
+      <div class="row d-flex justify-content-center align-items-center h-100 ">
+        <div class="col-xl-9">
+              <div class="card" style="border-radius: 15px;" >
+            <div class="card-body" >
+       
+              <div class="row align-items-center pt-4 pb-3 ">
+                <h4 class="text-center mb-5  pt-4">Appointment Confirmation</h4>
+                  <p class="text center p1">Please be informed that your appointment has been booked as following</p>
+
+                <div class="col-md-3 ps-5" >
+                  <h6 class="mb-0">Hospital Branch</h6>
+                </div>
+                <div class="col-md-4 pe-5">
+                 <input type="text" [ngStyle]="{'backgroundColor':'rgb(75,135,152)','color':'white'}" readonly value="{{regForm['controls']['branch'].value}}">
+                </div>
+              </div>
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                 <h6 class="mb-0">Patient Nmae</h6>
+                </div>
+                <div class="col-md-4 pe-5">
+                  <input type="text" [ngStyle]="{'backgroundColor':'rgb(75,135,152)','color':'white'}" readonly value="{{regForm['controls']['pName'].value}}">
+                </div>
+              </div>
+  
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Doctor Specialist</h6>
+                </div>
+                <div class="col-md-4 pe-5">
+                  <input type="text" [ngStyle]="{'backgroundColor':'rgb(75,135,152)','color':'white'}"  readonly value="{{regForm.controls['doctor'].value}}">
+                </div>
+              </div>
+
+             <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Visit Date</h6>
+                </div>
+                <div class="col-md-4 pe-5">
+                 <input type="text" [ngStyle]="{'backgroundColor':'rgb(75,135,152)','color':'white'}" readonly value="{{(regForm['controls']['visitdate'].value)|date:'mediumDate'}}">
+                </div>
+               
+              <div class="row align-items-center pt-4 pb-3">
+                    <div class="col-md-3 ps-5">
+                     <h6 class="mb-0">Medical Description</h6>
+                    </div>
+                    <div class="col-md-4 pe-5">
+                      <input type="text"[ngStyle]="{'backgroundColor':'rgb(75,135,152)','color':'white'}" readonly value="{{regForm['controls']['mIssue'].value}}">
+                    </div>
+              </div>
+          
+              <div class="row align-items-center pt-4 pb-3">
+                    <div class="col-md-3 ps-5">
+                    </div>
+                    <div class="col-md-4 pe-5">
+                      <button type="submit" (click)= "gotohome()" class="btn  btn-lg" [ngStyle]="{'backgroundColor':'rgb(75,135,152)','color':'white'}">Go To Homepage</button>
+                    </div>
+              </div>
+                  
+                
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div></div>
+  
+  </section></div>

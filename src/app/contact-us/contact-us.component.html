@@ -1,0 +1,70 @@
+<div class="row text-center r1"  style="background-color:rgb(150,212,229);">
+
+    <div class="col-sm-4"  >
+      <img src="../../assets/contactimage1.jpg" width="50%"height="100%"></div>
+    <div class="col-sm-2"  ><p>ADDRESS</p> 
+      <p> <img width="30%" [src]="img"></p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62281.90307699718!2d79.95627801024592!3d12.67297162943861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52fc650e6e057b%3A0x55352b7042976327!2sChengalpattu%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1681996241249!5m2!1sen!2sin" width="50" height="50" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    <div class="col-sm-2" ><p>PHONE</p> <p><img width="20%" [src]="img1"></p>
+       <a href="tel:09688589865" class="call">+919688589865 </a>
+    </div>
+    <div class="col-sm-2" ><p>EMAIL</p>
+           <p>  <img width="20%" [src]="img2"></p>
+      <a href="mailto:raja@mail.com" class="cont">raja@mail.com </a>
+      </div>
+  </div>
+
+
+
+  <section class="h-100 h-custom" style="background-color: #8fc4b7;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        
+        <div class="col-lg-8 col-xl-6">
+            <div class="card rounded-3">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Drop As A Query</h3>
+  
+              
+              <form class="px-md-2"  [formGroup]="queryForm" (ngSubmit)="onSubmit()">
+               <div class="row">
+                  <div class="col-md-6 mb-4">
+                  <div class="form-outline ">
+                      <input type="text" class="form-control"placeholder="Name" id="name" formControlName="name" />
+                                          </div>
+                                        </div>
+                
+                    <div class="col-md-6 mb-4">
+                     <div class="form-outline ">
+                      <input type="email" class="form-control"placeholder="Email" id="email"  formControlName="email"/>
+                                          </div>
+                            </div>
+                </div>
+                
+                
+                <div class="form-outline mb-4">
+               <input type="text" id="Subject" placeholder="Subject"class="form-control" formControlName="sub" />
+                    </div>
+    
+                       
+                
+                <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
+                  <div class="col-md-6">
+                   <div class="form-outline">
+                        <textarea class="form-control"  placeholder="Message" rows="3" id='msg'  formControlName="msg"  ></textarea>
+                      </div>
+                     </div>
+                   </div>
+  
+                
+                <button type="submit" class="btn btn-success btn-lg mb-1"  [disabled]="!queryForm.valid">Submit</button>
+  
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      
+    </div></div>
+  </section>

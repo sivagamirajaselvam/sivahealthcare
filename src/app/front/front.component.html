@@ -1,0 +1,73 @@
+
+      <nav class="navbar navbar-expand-lg bg-body-tertiary" [ngStyle]="{'backgroundColor':'rgb(233,249,231)'}">
+        <div class="container-fluid" [ngStyle]="{'backgroundColor':'rgb(233,249,231)'}">
+          <a class="navbar-brand" href="#">      <img src="../../assets/logo2.png" alt="Bootstrap" width="200" height="120">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav  ms-auto">
+              <!--isAuthenticated() is true means go to authenticated users,else unauthenticated users-->
+<ng-container *ngIf="this.service.isAuthenticated();then Authendicated;else unAuthendicated"></ng-container>
+<!--For unauthenticated Users-->
+<ng-template #unAuthendicated>
+   <li class="nav-item a">
+              <a class="nav-link"routerLink="Home" routerLinkActive="selected">Home</a>
+              </li>
+             <li class="nav-item">
+                <a class="nav-link"  routerLink="About" routerLinkActive="selected">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="Medical" routerLinkActive="selected">MedicalServices</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="Register" routerLinkActive="selected">Register </a>
+              </li>
+            
+              <li class="nav-item">
+                <a class="nav-link" routerLink="Login" routerLinkActive="selected">Login </a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" routerLink="Contactus" routerLinkActive="selected">Contact  </a>
+              </li>
+            <!----<li class="nav-item">
+                <a class="nav-link" routerLink="summary" routerLinkActive="selected">summary </a>
+              </li>-->
+            
+           </ng-template>
+             
+<!--for authenticated Users only-->
+          <ng-template #Authendicated>
+              <li class="nav-item a">
+                <a class="nav-link"routerLink="Home" routerLinkActive="selected">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  routerLink="About" routerLinkActive="selected">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="Medical" routerLinkActive="selected">MedicalServices</a>
+                </li>
+               <li class="nav-item">
+                <a class="nav-link" routerLink="Appointment" routerLinkActive="selected">Book Appointment </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="Contactus" routerLinkActive="selected">Contact  </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link selected" (click)="logout()">Logout  </a>
+              </li>
+           
+              </ng-template>
+            </ul>
+            
+        
+          </div>
+        </div>
+      </nav>
+
+
+
+
+
+      
